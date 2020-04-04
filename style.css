@@ -60,3 +60,28 @@ a{
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
 }
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-div{
+    width: 10%;
+}
+.reddit-logo{
+    width: 100%;
+}
+.search_div{
+    width: 30%;
+    display: flex;
+}
+.search-glass{
+    width: 10%;
+}
+.input{
+    width: 90%;
+}
