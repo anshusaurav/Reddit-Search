@@ -100,13 +100,14 @@ a{
 }
 .search-glass{
     width: 10%;
-    height: 80%;
+    height: 70%;
     opacity: 0.5;
 }
 .input{
     width: 90%;
     border: none;
     margin-left: 4px;
+    font-size: 14px;
 }
 .input:hover{
     background-color:transparent;
