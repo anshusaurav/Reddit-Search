@@ -149,6 +149,11 @@ a{
     width: 100%;
     margin: 0 auto;
 }
+.smallest-container{
+    padding: 0 25%;
+    width: 100%;
+    margin: 0 auto;
+}
 .search-results{
 
 }
@@ -179,5 +184,22 @@ a{
 }
 .score-div{
     width: 5%;
+    display: flex;
+    flex-direction: column;
 }
-
+.vote-img{
+    width: 60%;
+    background: #DAE0E6;
+}
+.post-details-div{
+    width: 95%;
+    background-color: thistle;
+}
+.updownscore{
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.vote-div{
+    height: 20px;
+}
