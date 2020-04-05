@@ -17,18 +17,18 @@ async function showTopic(topicName) {
     //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
 }
-async function showTrending() {
-    let posts;
-    let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
-    posts = await response.json();
-    console.log(posts);
-    resultPosts.push(...posts.data.children);
-    console.log(resultPosts);
-    resultPosts.forEach(elem=>createLiElem(elem));
-    searchHeaderElem.innerHTML = `Trending Subreddits`;
+// async function showTrending() {
+//     let posts;
+//     let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
+//     posts = await response.json();
+//     console.log(posts);
+//     resultPosts.push(...posts.data.children);
+//     console.log(resultPosts);
+//     resultPosts.forEach(elem=>createLiElem(elem));
+//     searchHeaderElem.innerHTML = `Trending Subreddits`;
         
-    searchResElem.style.display = 'block';
-}
+//     searchResElem.style.display = 'block';
+// }
 function createLiElem(post){
     // ulElem.innerHTML
     // <li class='li-item'>
@@ -110,5 +110,5 @@ function switchMode()
 {
     bodyElem.classList.toggle('dark');
 }
-showTrending();
+//showTrending();
   
