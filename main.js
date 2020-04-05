@@ -3,27 +3,42 @@ const ulElem = document.querySelector('.results-ul');
 const inputElem = document.querySelector('.input');
 const searchHeaderElem = document.querySelector('.sub-reddit');
 const searchResElem = document.querySelector('.search-results');
+const switchModeButton = document.querySelector('.light-dark');
+const bodyElem = document.querySelector('body');
 searchResElem.style.display = 'none';
+let isDarkMode = false;
 inputElem.addEventListener('keyup', updateUi);
+switchModeButton.addEventListener('click', switchMode);
 async function showTopic(topicName) {
     let posts;
     let response = await fetch(`https://api.reddit.com/r/${topicName}`);
     posts = await response.json();
     resultPosts.push(...posts.data.children);
-    console.log(resultPosts);
+    //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
 }
-
+async function showTrending() {
+    let posts;
+    let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
+    posts = await response.json();
+    console.log(posts);
+    resultPosts.push(...posts.data.children);
+    console.log(resultPosts);
+    resultPosts.forEach(elem=>createLiElem(elem));
+    searchHeaderElem.innerHTML = `Trending Subreddits`;
+        
+    searchResElem.style.display = 'block';
+}
 function createLiElem(post){
     // ulElem.innerHTML
     // <li class='li-item'>
     let strDate = '';
-    if(daysBetweenDate(post.data.create_utc) == 0)
+    if(daysBetweenDate(post.data.created_utc) == 0)
         strDate = 'Today';
-    else if(daysBetweenDate(post.data.create_utc) == 1)
+    else if(daysBetweenDate(post.data.created_utc) == 1)
         strDate = 'Yesterday';
     else
-        strDate = daysBetweenDate(post.data.create_utc) + ' days ago';
+        strDate = daysBetweenDate(post.data.created_utc) + ' days ago';
 
 
     let liElem = document.createElement('li');
@@ -38,7 +53,7 @@ function createLiElem(post){
                         </div>
                     </div>
                     <div class='post-details-div'>
-                        <h3 class='li-first-line'>Posted by u/${post.data.author}<span class='time-span'>${strDate}</span></h3>
+                        <h3 class='li-first-line'>Posted by u/${post.data.author}<span class='time-span'> ${strDate}</span></h3>
                         <h4 class='post-topic'>${post.data.title}</h4>
                         <p class='post-description'>${post.data.selftext}</p>
                         <div class='misc'>
@@ -58,8 +73,9 @@ function createLiElem(post){
     ulElem.append(liElem);
 }
 function updateUi(event){
-    ulElem.innerHTML = '';
+    
     if(event.keyCode == 13) {
+        ulElem.innerHTML = '';
         let value = this.value;
         searchHeaderElem.innerHTML = `r/${value}`;
         showTopic(value);
@@ -70,7 +86,7 @@ function updateUi(event){
 
 function daysBetweenDate(dt) {
     let d1= new Date(Date.now());
-    console.log(dt);
+    console.log(dt+'|');
     let d2 = new Date(dt);
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.round(Math.abs((d1 - d2) / oneDay));
@@ -88,13 +104,10 @@ function getCounts(cnt) {
     
 
 }
-async function showTrending() {
-    let posts;
-    let response = await fetch(`https://api.reddit.com/r/trending`);
-    posts = await response.json();
-    resultPosts.push(...posts.data.children);
-    console.log(resultPosts);
-    resultPosts.forEach(elem=>createLiElem(elem));
+
+function switchMode()
+{
+    bodyElem.classList.toggle('dark');
 }
-//showTrending();
+showTrending();
   

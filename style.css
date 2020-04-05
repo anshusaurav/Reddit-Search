@@ -98,7 +98,7 @@ a{
 .search_div:hover{
     background-color:#f6f7f8;
     border: 1px solid #0079d3;
-    box-sizing: content-box;
+    
 }
 .search-glass{
     width: 32px;
@@ -198,19 +198,21 @@ a{
 .li-item:hover{
     border: thin solid #898989;
     z-index: 1;
+    box-sizing: content-box;
 }
 .score-div{
     width: 5%;
     display: flex;
     flex-direction: column;
     background: #e1e9f2;
-    padding: 0.2rem 0 0 0.3rem;
+    padding: 0.2rem 0 0 0;
 }
 .vote-div{
     opacity: 0.2;
 }
 .vote-img{
     width: 60%;
+    margin: 0 20%;
     background: rgb(189, 194, 199);
     opacity: 0.9;
     cursor: pointer;
@@ -227,6 +229,7 @@ a{
     font-size: 14px;
     font-weight: 700;
     opacity: 0.8;
+    text-align: center;
 }
 .vote-div{
     height: 20px;
@@ -271,9 +274,14 @@ a{
     font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
+    word-wrap: break-word;
 }
 .comment-image{
     width: 100%;
     padding-left: 0;
 }
 
+.dark{
+    background-color: black;
+    color: white;
+  }
