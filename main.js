@@ -1,6 +1,9 @@
 let resultPosts=[];
 const ulElem = document.querySelector('.results-ul');
 const inputElem = document.querySelector('.input');
+const searchHeaderElem = document.querySelector('.sub-reddit');
+const searchResElem = document.querySelector('.search-results');
+searchResElem.style.display = 'none';
 inputElem.addEventListener('keyup', updateUi);
 async function showTopic(topicName) {
     let posts;
@@ -58,13 +61,16 @@ function updateUi(event){
     ulElem.innerHTML = '';
     if(event.keyCode == 13) {
         let value = this.value;
+        searchHeaderElem.innerHTML = `r/${value}`;
         showTopic(value);
+        searchResElem.style.display = 'block';
     }
 
 }
 
 function daysBetweenDate(dt) {
     let d1= new Date(Date.now());
+    console.log(dt);
     let d2 = new Date(dt);
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.round(Math.abs((d1 - d2) / oneDay));
@@ -82,4 +88,13 @@ function getCounts(cnt) {
     
 
 }
+async function showTrending() {
+    let posts;
+    let response = await fetch(`https://api.reddit.com/r/trending`);
+    posts = await response.json();
+    resultPosts.push(...posts.data.children);
+    console.log(resultPosts);
+    resultPosts.forEach(elem=>createLiElem(elem));
+}
+//showTrending();
   

@@ -98,11 +98,13 @@ a{
 .search_div:hover{
     background-color:#f6f7f8;
     border: 1px solid #0079d3;
+    box-sizing: content-box;
 }
 .search-glass{
     width: 32px;
     height: 32px;
     opacity: 0.5;
+    cursor: pointer;
 }
 .input{
     width: 90%;
@@ -165,7 +167,7 @@ a{
 }
 .sub-reddit{
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-size: 2rem;
     font-weight: 700;
     /* margin: 0.5rem 0; */
@@ -175,6 +177,8 @@ a{
     letter-spacing: 1px;
     font-size: 1.2rem;
     font-weight: 600;
+    /* padding-bottom: 0.4rem; */
+    
     /* padding: 0.25rem 0; */
 }
 .sub-reddit-div{
@@ -239,7 +243,7 @@ a{
     align-self: flex-end;
 }
 .comment-img{
-    width: 30%;
+    width: 20%;
     padding-left: 0;
     align-self: flex-start;
 }
