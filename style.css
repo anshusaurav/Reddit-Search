@@ -54,13 +54,13 @@ table {
 }
 body{
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
     background-color: #DAE0E6;
 }
 a{
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .container{
     padding: 0.25rem 4.5%;
@@ -110,6 +110,10 @@ a{
     margin-left: 4px;
     font-size: 14px;
     height: 22px;
+    font-family: 'Montserrat', sans-serif;
+}
+.input::placeholder{
+    font-family: 'Montserrat', sans-serif;
 }
 .input:hover{
     background-color:transparent;
@@ -125,6 +129,7 @@ a{
     text-transform: uppercase;
     padding: 6px 16px;
     border: 1px solid transparent;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 4px;
     box-sizing: border-box;
     text-align: center;
@@ -182,18 +187,29 @@ a{
 }
 .li-item{
     display: flex;
-    padding: 12px;
+    /* padding: 12px; */
     background-color: white;
     margin: 0.8rem;
+}
+.li-item:hover{
+    border: thin solid #898989;
+    z-index: 1;
 }
 .score-div{
     width: 5%;
     display: flex;
     flex-direction: column;
+    background: #e1e9f2;
+    padding: 0.2rem 0 0 0.3rem;
+}
+.vote-div{
+    opacity: 0.2;
 }
 .vote-img{
     width: 60%;
-    background: #DAE0E6;
+    background: rgb(189, 194, 199);
+    opacity: 0.9;
+    cursor: pointer;
 }
 .post-details-div{
     display: flex;
@@ -201,12 +217,12 @@ a{
     justify-content: space-between;
     width: 90%;
     padding: 8px;
-    background-color: #DAE0E6;
 }
 .updownscore{
     height: 20px;
     font-size: 14px;
     font-weight: 700;
+    opacity: 0.8;
 }
 .vote-div{
     height: 20px;
@@ -215,20 +231,45 @@ a{
     display: flex;
 }
 .comment-div{
-    width: 25%;
+    width: 30%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: flex-end;
 }
 .comment-img{
     width: 30%;
+    padding-left: 0;
+    align-self: flex-start;
 }
 .comment-num-div{
-    width: 70%;
+    font-weight: 600;
+    font-size: 14px;
 }
 .post-topic{
     font-weight: 600;
     font-size: 1.1rem;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
 }
 .li-first-line{
     color: #A4A4A5;
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif;
+}
+.post-description{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.comment-image{
+    width: 100%;
+    padding-left: 0;
 }
 

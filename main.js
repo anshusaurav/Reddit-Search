@@ -1,4 +1,4 @@
-
+let posts=[];
 async function showTopic(topicName) {
     let posts;
     let response = await fetch(`https://api.reddit.com/r/${topicName}`);
