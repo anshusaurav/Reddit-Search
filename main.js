@@ -53,7 +53,7 @@ function createLiElem(post){
                         </div>
                     </div>
                     <div class='post-details-div'>
-                        <h3 class='li-first-line'>Posted by u/${post.data.author}<span class='time-span'> ${strDate}</span></h3>
+                        <h3 class='li-first-line'>Posted by u/${post.data.author}<span class='time-span'> ${strDate} ${daysBetweenDate(post.data.created)}</span></h3>
                         <h4 class='post-topic'>${post.data.title}</h4>
                         <p class='post-description'>${post.data.selftext}</p>
                         <div class='misc'>
@@ -74,6 +74,7 @@ function createLiElem(post){
 }
 function updateUi(event){
     
+    ulElem.innerHTML = '';
     if(event.keyCode == 13) {
         ulElem.innerHTML = '';
         let value = this.value;
