@@ -296,6 +296,7 @@ a{
     height: 350px;
     padding: 0;
     overflow: hidden;
+    
 }
 .iframeelem {
 
@@ -321,3 +322,7 @@ a{
     /* margin-left: 1rem; */
     background: transparent;  /* make scrollbar invisible */
 }   
+iframe > img{
+    max-height: 512px;
+    max-width: 100%;
+}
