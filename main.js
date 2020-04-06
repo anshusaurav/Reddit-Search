@@ -17,18 +17,17 @@ async function showTopic(topicName) {
     //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
 }
-// async function showTrending() {
-//     let posts;
-//     let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
-//     posts = await response.json();
-//     console.log(posts);
-//     resultPosts.push(...posts.data.children);
-//     console.log(resultPosts);
-//     resultPosts.forEach(elem=>createLiElem(elem));
-//     searchHeaderElem.innerHTML = `Trending Subreddits`;
-        
-//     searchResElem.style.display = 'block';
-// }
+async function showTrending() {
+    let posts;
+    let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
+    posts = await response.json();
+    //console.log(posts);
+    resultPosts.push(...posts.data.children);
+    //console.log(resultPosts);
+    resultPosts.forEach(elem=>createLiElem(elem));
+    searchHeaderElem.innerHTML = `Trending Subreddits`;
+    searchResElem.style.display = 'block';
+}
 function createLiElem(post){
     // ulElem.innerHTML
     // <li class='li-item'>
@@ -74,20 +73,30 @@ function createLiElem(post){
 }
 function updateUi(event){
     
-    ulElem.innerHTML = '';
     if(event.keyCode == 13) {
-        ulElem.innerHTML = '';
+       reset();
         let value = this.value;
         searchHeaderElem.innerHTML = `r/${value}`;
         showTopic(value);
         searchResElem.style.display = 'block';
     }
+     console.log(ulElem.childElementCount);
+        while(ulElem.firstChild)
+            ulElem.removeChild(ulElem.firstChild);
+        console.log(ulElem.childElementCount);
 
 }
-
+function reset()
+{
+    console.log(ulElem.childElementCount);
+    while(ulElem.firstChild)
+        ulElem.removeChild(ulElem.firstChild);
+    console.log(ulElem.childElementCount);
+    resultPosts = [];       
+}
 function daysBetweenDate(dt) {
     let d1= new Date(Date.now());
-    console.log(dt+'|');
+    //console.log(dt+'|');
     let d2 = new Date(dt);
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.round(Math.abs((d1 - d2) / oneDay));
@@ -108,7 +117,7 @@ function getCounts(cnt) {
 
 function switchMode()
 {
-    bodyElem.classList.toggle('dark');
+    bodyElem.classList.toggle('dark');  
 }
-//showTrending();
+showTrending();
   
