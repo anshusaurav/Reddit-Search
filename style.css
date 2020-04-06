@@ -290,11 +290,11 @@ a{
 }
 
 .dark{
-    background-color: rgba(27, 26, 26, 0.551);
+    background-color: rgba(17, 16, 16, 0.551);
     color: white;
   }
-.grey{
-    background-color: rgba(37, 36, 36, 0.231);
+.grey-mod{
+    background-color: rgba(29, 26, 26, 0.231);
     
 }
 .misc {

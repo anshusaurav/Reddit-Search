@@ -137,10 +137,12 @@ function getCounts(cnt) {
 function switchMode()
 {
     bodyElem.classList.toggle('dark');  
-    let liArr = Array.from(document.querySelectorAll('.post-details-div'));
-    liArr.forEach(elem=> elem.classList.toggle('grey'));
+    let liArr = Array.from(document.querySelectorAll('.li-item'));
+    liArr.forEach(elem=> elem.classList.toggle('grey-mod'));
     let commentArr = Array.from(document.querySelectorAll('.comment-num-div'));
-    commentArr.forEach(elem=> elem.classList.toggle('grey'));
+    commentArr.forEach(elem=> elem.classList.toggle('grey-mod'));
+    let scoreArr = Array.from(document.querySelectorAll('.post-details-div'));
+    scoreArr.forEach(elem=> elem.classList.toggle('grey-mod'));
 }
 showTrending();
   
