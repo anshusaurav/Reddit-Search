@@ -137,6 +137,10 @@ function getCounts(cnt) {
 function switchMode()
 {
     bodyElem.classList.toggle('dark');  
+    let liArr = Array.from(document.querySelectorAll('.post-details-div'));
+    liArr.forEach(elem=> elem.classList.toggle('grey'));
+    let commentArr = Array.from(document.querySelectorAll('.comment-num-div'));
+    commentArr.forEach(elem=> elem.classList.toggle('grey'));
 }
 showTrending();
   
