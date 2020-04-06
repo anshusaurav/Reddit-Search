@@ -70,7 +70,7 @@ function createLiElem(post){
                                         <img src='comments.jpg' class='comment-image'/>
                                     </a>
                                 </div>
-                                <h6 class = 'comment-num-div'>${post.data.num_comments} comments</h6>
+                                <h6 class = 'comment-num-div'>${getCounts(post.data.num_comments)} comments</h6>
                             </div>
                         </div>
                     </div>`;

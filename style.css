@@ -246,7 +246,6 @@ a{
     display: flex;
     align-items: center;
     text-align: center;
-    align-self: flex-end;
 }
 .comment-img{
     width: 20%;
@@ -287,6 +286,7 @@ a{
 .comment-image{
     width: 100%;
     padding-left: 0;
+    margin-top: 4px;
 }
 
 .dark{
