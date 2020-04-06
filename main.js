@@ -21,7 +21,7 @@ async function showTopic(topicName) {
 }
 async function showTrending() {
     let posts;
-    let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
+    let response = await fetch(`https://api.reddit.com/r/popular/`);
     posts = await response.json();
     console.log('Trend');
     console.log(posts);
@@ -78,16 +78,16 @@ function createLiElem(post){
     let miscElem = liElem.querySelector('.misc');
     console.log(url);
     url = url.replace("watch?v=", "v/");
-    // if(url.startsWith('https')||url.startsWith('http') ){
-    //     miscElem.innerHTML=`<iframe id="iframeElem"
-    //     title="Inline Frame Example"
-    //     width="80%"
-    //     height="300"
-    //     frameborder="0"
-    //     src=${url}>
-    //     </iframe>`;
-    //     console.log(url);
-    // }
+    if((url.startsWith('https')||url.startsWith('http')) && (url.endsWith('jpeg')||url.endsWith('png')||url.endsWith('jpg')||url.endsWith('gif'))){
+        miscElem.innerHTML=`<iframe class="iframeelem"
+        title="Inline Frame Example"
+        src=${url}>
+        </iframe>`;
+        console.log('Thi should be included' +url);
+    }
+    else{
+        miscElem.style.display = 'none';
+    }
     ulElem.append(liElem);
 }
 function updateUi(event){
@@ -127,7 +127,7 @@ function getCounts(cnt) {
     if(cnt >= 1000)
     {    
         res = cnt/1000;
-        return res.toFixed(2);
+        return res.toFixed(1)+'K';
     }
     return cnt;
     
