@@ -288,3 +288,13 @@ a{
     background-color: black;
     color: white;
   }
+ #iframeElem {
+    width: 80%;
+    margin: 0 10%;
+    display:block;
+    object-fit: cover;
+ }
+.misc {
+    
+    background: black;
+}

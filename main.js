@@ -66,7 +66,7 @@ function createLiElem(post){
                         <div class='li-footer'>
                             <div class='comment-div'>
                                 <div class='comment-img'>
-                                    <a href=''>
+                                    <a href=${"https://www.reddit.com" + post.data.permalink}>
                                         <img src='comments.jpg' class='comment-image'/>
                                     </a>
                                 </div>
@@ -74,15 +74,20 @@ function createLiElem(post){
                             </div>
                         </div>
                     </div>`;
+    let url = post.data.url;
     let miscElem = liElem.querySelector('.misc');
-    if(post.data.url.startsWith('https')||post.data.url.startsWith('http') ){
-        miscElem.innerHTML=`<iframe id="inlineFrameExample"
-        title="Inline Frame Example"
-        height="300"
-        src=${post.data.url}>
-        </iframe>`;
-        console.log(post.data.url);
-    }
+    console.log(url);
+    url = url.replace("watch?v=", "v/");
+    // if(url.startsWith('https')||url.startsWith('http') ){
+    //     miscElem.innerHTML=`<iframe id="iframeElem"
+    //     title="Inline Frame Example"
+    //     width="80%"
+    //     height="300"
+    //     frameborder="0"
+    //     src=${url}>
+    //     </iframe>`;
+    //     console.log(url);
+    // }
     ulElem.append(liElem);
 }
 function updateUi(event){
