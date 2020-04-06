@@ -262,12 +262,15 @@ a{
     font-family: 'Montserrat', sans-serif;
     text-align: justify;
     text-justify: inter-word;
+    color: rgb(56, 56, 57);
 }
-.li-first-line{
+.li-first-line, .time-span{
     color: #A4A4A5;
     font-size: 14px;
     line-height: 1.7;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+ 
 }
 .post-description{
     font-family: 'Montserrat', sans-serif;

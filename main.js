@@ -13,6 +13,8 @@ async function showTopic(topicName) {
     let posts;
     let response = await fetch(`https://api.reddit.com/r/${topicName}`);
     posts = await response.json();
+    console.log('search');
+    console.log(posts);
     resultPosts.push(...posts.data.children);
     //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
@@ -21,7 +23,8 @@ async function showTrending() {
     let posts;
     let response = await fetch(`https://api.reddit.com/r/trending_subreddits`);
     posts = await response.json();
-    //console.log(posts);
+    console.log('Trend');
+    console.log(posts);
     resultPosts.push(...posts.data.children);
     //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
@@ -52,8 +55,10 @@ function createLiElem(post){
                         </div>
                     </div>
                     <div class='post-details-div'>
-                        <h3 class='li-first-line'>Posted by u/${post.data.author}<span class='time-span'> ${strDate} ${daysBetweenDate(post.data.created)}</span></h3>
-                        <h4 class='post-topic'>${post.data.title}</h4>
+                        <div>
+                            <a class='li-first-line' href=${"https://www.reddit.com/user/" +post.data.author }>Posted by u/${post.data.author}</a><span class='time-span'> ${strDate} ${daysBetweenDate(post.data.created)}</span>
+                        </div>
+                        <a class='post-topic' href=${"https://www.reddit.com" + post.data.permalink}>${post.data.title}</a>
                         <p class='post-description'>${post.data.selftext}</p>
                         <div class='misc'>
 
@@ -69,6 +74,15 @@ function createLiElem(post){
                             </div>
                         </div>
                     </div>`;
+    let miscElem = liElem.querySelector('.misc');
+    if(post.data.url.startsWith('https')||post.data.url.startsWith('http') ){
+        miscElem.innerHTML=`<iframe id="inlineFrameExample"
+        title="Inline Frame Example"
+        height="300"
+        src=${post.data.url}>
+        </iframe>`;
+        console.log(post.data.url);
+    }
     ulElem.append(liElem);
 }
 function updateUi(event){
