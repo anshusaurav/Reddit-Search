@@ -198,7 +198,8 @@ a{
 }
 .li-item:hover{
     border: thin solid #898989;
-    z-index: 1;
+    z-index: 100;
+    /* border-radius: 4px; */
     box-sizing: content-box;
 }
 .score-div{
@@ -214,8 +215,8 @@ a{
 .vote-img{
     width: 60%;
     margin: 0 20%;
-    background: rgb(189, 194, 199);
-    opacity: 0.6;
+    opacity: 0.25;
+    background-color: transparent;
     cursor: pointer;
     
 }
@@ -252,13 +253,13 @@ a{
 .comment-img{
     width: 20%;
     padding-left: 0;
-    opacity: 0.5;
+    
     align-self: flex-start;
 }
 .comment-num-div{
     color: #A4A4A5;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     
 }
 .post-topic{
@@ -289,7 +290,8 @@ a{
 .comment-image{
     width: 100%;
     padding-left: 0;
-    margin-top: 4px;
+    margin-top: 6px;
+    opacity: 0.5;
 }
 
 .dark{
@@ -297,16 +299,30 @@ a{
     color: white;
   }
 .grey-mod1{
-    background-color: #141415;
+    background-color: #1A1A1B;
     
 }
 .grey-mod2 {
     color: #818384;
 }
+.grey-mode3{
+    opacity: 0.9;
+    /* background-color: #141415; */
+}
+.grey-mode4{
+    opacity: 0.4;
+    /* background-color: #141415; */
+}
+.grey-mode5{
+    opacity: 0.8;
+    filter: grayscale(10%);
+    /* background-color: #141415; */
+}
 .grey-mod{
-    background-color: #141415;
+    background-color: #1e1e20;
     color: #818384;
 }
+
 .misc {
     width: 100%;
     height: 350px;
@@ -317,7 +333,7 @@ a{
 .iframeelem {
 
     width: 250%;
-    height: 3000px;
+    min-height: 3000px;
     border: 0;
     -ms-transform: scale(0.4);
     -moz-transform: scale(0.4);
@@ -333,12 +349,10 @@ a{
     margin: 0 auto;
 }
 
+
+
 .iframeElem::-webkit-scrollbar {
     /* width: 5px;  remove scrollbar space */
     /* margin-left: 1rem; */
     background: transparent;  /* make scrollbar invisible */
 }   
-iframe > img{
-    max-height: 512px;
-    max-width: 100%;
-}

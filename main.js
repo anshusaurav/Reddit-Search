@@ -47,11 +47,11 @@ function createLiElem(post){
     liElem.classList.add('li-item');
     liElem.innerHTML = `<div class='score-div'>
                         <div class='vote-div'>
-                            <img src="up.png" alt='search-mark' class='vote-img'>
+                            <img src="upB.png" alt='search-mark' class='vote-img'>
                         </div>
                         <h2 class='updownscore'>${getCounts(post.data.score)}</h2>
                         <div class='vote-div'>
-                            <img src="down.png" alt='search-mark' class='vote-img'>
+                            <img src="downB.png" alt='search-mark' class='vote-img'>
                         </div>
                     </div>
                     <div class='post-details-div'>
@@ -70,7 +70,7 @@ function createLiElem(post){
                                         <img src='comments.jpg' class='comment-image'/>
                                     </a>
                                 </div>
-                                <h6 class = 'comment-num-div'>${getCounts(post.data.num_comments)} comments</h6>
+                                <h6 class = 'comment-num-div'>${getCounts(post.data.num_comments)} Comments</h6>
                             </div>
                         </div>
                     </div>`;
@@ -147,6 +147,17 @@ function switchMode()
     scoresDiv.forEach(elem => {
         elem.classList.toggle('grey-mod');
     })
+
+    let votesDiv = Array.from(document.body.querySelectorAll('.vote-div'));
+    votesDiv.forEach(elem => {
+        elem.classList.toggle('grey-mode4');
+    })
+    let votesImg = Array.from(document.body.querySelectorAll('.vote-img'));
+    votesImg.forEach(elem => {
+        elem.classList.toggle('grey-mode5');
+    })
+    let commentImgArr = Array.from(document.querySelectorAll('.comment-image'));
+    commentImgArr.forEach(elem=> elem.classList.toggle('grey-mode3'));
     
 }
 showTrending();
