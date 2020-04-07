@@ -232,7 +232,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     width: 95%;
-    padding: 8px;
+    padding: 2px;
 }
 .updownscore{
     height: 20px;
@@ -347,7 +347,7 @@ a{
 .misc-img{
     width: 100%;
     object-fit: contain;
-    max-height: 420px;
+    max-height: 460px;
 
 }
 

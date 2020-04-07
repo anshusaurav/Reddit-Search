@@ -59,7 +59,7 @@ function createLiElem(post){
                             <p class='li-first-line'>Posted by <a class="author-name" href=${"https://www.reddit.com/user/" +post.data.author }>u/${post.data.author}</a></p><span class='time-span'> ${daysBetweenDate(post.data.created)}</span>
                         </div>
                         <a class='post-topic' href=${"https://www.reddit.com" + post.data.permalink}>${post.data.title}</a>
-                        <p class='post-description'>${post.data.selftext}</p>
+                        
                         <div class='misc'>
 
                         </div>
@@ -74,6 +74,7 @@ function createLiElem(post){
                             </div>
                         </div>
                     </div>`;
+                    //<p class='post-description'>${post.data.selftext}</p>
     let url = post.data.url;
     let miscElem = liElem.querySelector('.misc');
     console.log(url);
