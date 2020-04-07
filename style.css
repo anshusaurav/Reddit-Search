@@ -80,7 +80,7 @@ a{
 .reddit-logo{
     width: 100%;
 }
-.search_div{
+.search-div{
     width: 30%;
     display: flex;
     border: 1px solid #f6f7f8;
@@ -94,6 +94,7 @@ a{
     justify-content: center;
     align-items: center;
     height: 3rem;
+    background-color: transparent;
 }
 .search_div:hover{
     background-color:#f6f7f8;
@@ -112,13 +113,14 @@ a{
     margin-left: 4px;
     font-size: 14px;
     height: 22px;
+    background-color: transparent;
     font-family: 'Montserrat', sans-serif;
 }
 .input::placeholder{
     font-family: 'Montserrat', sans-serif;
 }
 .input:hover{
-    background-color:transparent;
+    background-color:#f6f7f8;
 }
 .input:focus{
     border: none;
@@ -209,6 +211,11 @@ a{
     background: #e6eaf0;
     padding: 0.2rem 0 0 0;
 }
+.author-name{
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+}
 .vote-div{
     opacity: 0.8;
 }
@@ -280,6 +287,9 @@ a{
     text-decoration: none;
  
 }
+.li-first-line{
+    display: inline;
+}
 .post-description{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -296,10 +306,14 @@ a{
 
 .dark{
     background-color: #030303;
-    color: white;
+    color: #d7dadc;
   }
+
+.dark-mode2{
+    color: #d7dadc;
+}
 .grey-mod1{
-    background-color: #1A1A1B;
+    background-color: #2a2929;
     
 }
 .grey-mod2 {
@@ -325,34 +339,15 @@ a{
 
 .misc {
     width: 100%;
-    height: 350px;
     padding: 0;
     overflow: hidden;
     
 }
-.iframeelem {
 
-    width: 250%;
-    min-height: 3000px;
-    border: 0;
-    -ms-transform: scale(0.4);
-    -moz-transform: scale(0.4);
-    -o-transform: scale(0.4);
-    -webkit-transform: scale(0.4);
-    transform: scale(0.4);
-    
-    -ms-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    -o-transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    margin: 0 auto;
+.misc-img{
+    width: 100%;
+    object-fit: contain;
+    max-height: 420px;
+
 }
 
-
-
-.iframeElem::-webkit-scrollbar {
-    /* width: 5px;  remove scrollbar space */
-    /* margin-left: 1rem; */
-    background: transparent;  /* make scrollbar invisible */
-}   

@@ -56,7 +56,7 @@ function createLiElem(post){
                     </div>
                     <div class='post-details-div'>
                         <div>
-                            <a class='li-first-line' href=${"https://www.reddit.com/user/" +post.data.author }>Posted by u/${post.data.author}</a><span class='time-span'> ${strDate} ${daysBetweenDate(post.data.created)}</span>
+                            <p class='li-first-line'>Posted by <a class="author-name" href=${"https://www.reddit.com/user/" +post.data.author }>u/${post.data.author}</a></p><span class='time-span'> ${daysBetweenDate(post.data.created)}</span>
                         </div>
                         <a class='post-topic' href=${"https://www.reddit.com" + post.data.permalink}>${post.data.title}</a>
                         <p class='post-description'>${post.data.selftext}</p>
@@ -79,10 +79,9 @@ function createLiElem(post){
     console.log(url);
     url = url.replace("watch?v=", "v/");
     if((url.startsWith('https')||url.startsWith('http')) && (url.endsWith('jpeg')||url.endsWith('png')||url.endsWith('jpg')||url.endsWith('gif'))){
-        miscElem.innerHTML=`<iframe class="iframeelem"
+        miscElem.innerHTML=`<img class="misc-img"
         title="Inline Frame Example"
-        src=${url}>
-        </iframe>`;
+        src=${url}>`;
         console.log('Thi should be included' +url);
     }
     else{
@@ -99,10 +98,10 @@ function updateUi(event){
         showTopic(value);
         searchResElem.style.display = 'block';
     }
-     console.log(ulElem.childElementCount);
-        while(ulElem.firstChild)
-            ulElem.removeChild(ulElem.firstChild);
-        console.log(ulElem.childElementCount);
+    //  console.log(ulElem.childElementCount);
+    //     while(ulElem.firstChild)
+    //         ulElem.removeChild(ulElem.firstChild);
+    //     console.log(ulElem.childElementCount);
 
 }
 function reset()
@@ -114,12 +113,8 @@ function reset()
     resultPosts = [];       
 }
 function daysBetweenDate(dt) {
-    let d1= new Date(Date.now());
-    //console.log(dt+'|');
-    let d2 = new Date(dt);
-    const oneDay = 24 * 60 * 60 * 1000;
-    const diffDays = Math.round(Math.abs((d1 - d2) / oneDay));
-    return diffDays;
+    let d2 = new Date(dt*1000);
+    return d2.toString().substr(0,21);
 }
 
 function getCounts(cnt) {
@@ -157,8 +152,24 @@ function switchMode()
         elem.classList.toggle('grey-mode5');
     })
     let commentImgArr = Array.from(document.querySelectorAll('.comment-image'));
-    commentImgArr.forEach(elem=> elem.classList.toggle('grey-mode3'));
+    commentImgArr.forEach(elem => elem.classList.toggle('grey-mode3'));
+
+    let postTopicHs = Array.from(document.body.querySelectorAll('.post-topic'));
+    postTopicHs.forEach(elem => elem.classList.toggle('dark-mode2'));
     
+    let logoElem = document.body.querySelector('.reddit-logo');
+    if(logoElem.getAttribute('src').endsWith('reddit-logoB.png'))
+        logoElem.setAttribute('src','reddit-logoBC.png');
+    else
+    logoElem.setAttribute('src','reddit-logoB.png');
+
+    let headElem = document.body.querySelector('.header');
+    headElem.classList.toggle('grey-mod1');
+    headElem.classList.toggle('grey-mod2');
+    let inpElemHover = document.body.querySelector('.input:hover');
+    console.dir(inpElemHover);
+    inpElemHover.classList.toggle('dark');
+    // logoElem.classList.toggle('dark-logo');
 }
 showTrending();
   
