@@ -194,6 +194,7 @@ a{
     /* padding: 12px; */
     background-color: white;
     margin: 0.8rem;
+    justify-content: stretch;
 }
 .li-item:hover{
     border: thin solid #898989;
@@ -204,24 +205,25 @@ a{
     width: 5%;
     display: flex;
     flex-direction: column;
-    background: #e1e9f2;
+    background: #e6eaf0;
     padding: 0.2rem 0 0 0;
 }
 .vote-div{
-    opacity: 0.2;
+    opacity: 0.8;
 }
 .vote-img{
     width: 60%;
     margin: 0 20%;
     background: rgb(189, 194, 199);
-    opacity: 0.9;
+    opacity: 0.6;
     cursor: pointer;
+    
 }
 .post-details-div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 90%;
+    width: 95%;
     padding: 8px;
 }
 .updownscore{
@@ -250,6 +252,7 @@ a{
 .comment-img{
     width: 20%;
     padding-left: 0;
+    opacity: 0.5;
     align-self: flex-start;
 }
 .comment-num-div{
@@ -290,12 +293,19 @@ a{
 }
 
 .dark{
-    background-color: rgba(17, 16, 16, 0.551);
+    background-color: #030303;
     color: white;
   }
-.grey-mod{
-    background-color: rgba(29, 26, 26, 0.231);
+.grey-mod1{
+    background-color: #141415;
     
+}
+.grey-mod2 {
+    color: #818384;
+}
+.grey-mod{
+    background-color: #141415;
+    color: #818384;
 }
 .misc {
     width: 100%;

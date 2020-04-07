@@ -138,11 +138,16 @@ function switchMode()
 {
     bodyElem.classList.toggle('dark');  
     let liArr = Array.from(document.querySelectorAll('.li-item'));
-    liArr.forEach(elem=> elem.classList.toggle('grey-mod'));
+    liArr.forEach(elem=> elem.classList.toggle('grey-mod1'));
     let commentArr = Array.from(document.querySelectorAll('.comment-num-div'));
-    commentArr.forEach(elem=> elem.classList.toggle('grey-mod'));
-    let scoreArr = Array.from(document.querySelectorAll('.post-details-div'));
-    scoreArr.forEach(elem=> elem.classList.toggle('grey-mod'));
+    commentArr.forEach(elem=> elem.classList.toggle('grey-mod2'));
+    let postDetailsDiv = Array.from(document.querySelectorAll('.post-details-div'));
+    postDetailsDiv.forEach(elem=> elem.classList.toggle('grey-mod1'));
+    let scoresDiv = Array.from(document.body.querySelectorAll('.score-div'));
+    scoresDiv.forEach(elem => {
+        elem.classList.toggle('grey-mod');
+    })
+    
 }
 showTrending();
   
