@@ -11,7 +11,8 @@ if(localStorage.getItem('isDarkMode' ))
     isDM = JSON.parse( localStorage.isDarkMode );
 else
     isDM = false;
-
+// if(isDM)
+//     switchMode();
 inputElem.addEventListener('keyup', updateUi);
 switchModeButton.addEventListener('input', switchMode);
 async function showTopic(topicName) {
@@ -86,10 +87,21 @@ function createLiElem(post){
         src=${url}>`;
         console.log('Thi should be included' +url);
     }
+    else if(url.indexOf('yout')!=-1){
+        var video_id = youtube_parser(url);
+        let newUrl = `https://www.youtube.com/embed/${video_id}`;
+        miscElem.innerHTML = `<iframe src=${newUrl} class='misc-iframe'
+        width="95%" height="360" frameborder="0" allowfullscreen></iframe>`
+    }
     else{
         miscElem.style.display = 'none';
     }
     ulElem.append(liElem);
+}
+function youtube_parser(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
 }
 function updateUi(event){
     
