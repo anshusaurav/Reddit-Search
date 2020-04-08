@@ -6,7 +6,11 @@ const searchResElem = document.querySelector('.search-results');
 const switchModeButton = document.querySelector('.toggle');
 const bodyElem = document.querySelector('body');
 searchResElem.style.display = 'none';
-let isDarkMode = false;
+let isDM;
+if(localStorage.getItem('isDarkMode' ))
+    isDM = JSON.parse( localStorage.isDarkMode );
+else
+    isDM = false;
 
 inputElem.addEventListener('keyup', updateUi);
 switchModeButton.addEventListener('input', switchMode);
@@ -125,6 +129,7 @@ function getCounts(cnt) {
 
 function switchMode()
 {
+    isDM = !isDM;
     bodyElem.classList.toggle('dark');  
     let liArr = Array.from(document.querySelectorAll('.li-item'));
     liArr.forEach(elem=> elem.classList.toggle('grey-mod1'));
@@ -155,13 +160,16 @@ function switchMode()
     if(logoElem.getAttribute('src').endsWith('reddit-logoB.png'))
         logoElem.setAttribute('src','reddit-logoBC.png');
     else
-    logoElem.setAttribute('src','reddit-logoB.png');
+        logoElem.setAttribute('src','reddit-logoB.png');
 
     let headElem = document.body.querySelector('.header');
     headElem.classList.toggle('grey-mod1');
     headElem.classList.toggle('grey-mod2');
     let inpElemHover = document.body.querySelector('.input');
     inpElemHover.classList.toggle('grey-misc');
+    localStorage.setItem('isDarkMode', JSON.stringify(isDM));
+    
 }
+
 showTrending();
   
