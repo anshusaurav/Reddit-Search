@@ -112,13 +112,14 @@ a{
     width: 90%;
     border: none;
     margin-left: 4px;
-    font-size: 14px;
+    font-size: 18px;
     height: 36px;
     background-color: transparent;
     font-family: 'Montserrat', sans-serif;
 }
 .input::placeholder{
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
 }
 .input:hover{
     background-color:#f6f7f8;
@@ -130,8 +131,8 @@ a{
 .header-buttons{
     
     display: grid;
-    align-items: center;
     grid-gap: 6px;
+    
     grid-template-columns: 1fr 1fr 1fr;
     
 }
@@ -373,9 +374,15 @@ a{
     border: none;
     outline: none;
 }
-
-.toggle{
+.toggle-cont{
     width: 30%;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    padding-top: 4px
+}
+.toggle{
+    display: grid;
 }
 .toggle input[type=checkbox] {
 	display: none;
@@ -400,7 +407,9 @@ a{
 	content: ' ';
 	cursor: pointer;
 	display: inline-block;
-	position: absolute;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
 	transition: all ease-in-out 0.3s;
     width: 32px;
     height: 32px;

@@ -22,7 +22,7 @@ async function showTopic(topicName) {
 }
 async function showTrending() {
     let posts;
-    let response = await fetch(`https://api.reddit.com/r/popular/`);
+    let response = await fetch(`https://api.reddit.com/top/`);
     posts = await response.json();
     console.log('Trend');
     console.log(posts);
@@ -173,11 +173,11 @@ function switchMode(event)
     console.dir(inpElemHover);
     //inpElemHover.classList.toggle('dark');
     console.log(this);
-    this.classList.toggle('grey-mod');
-    if(this.getAttribute('value') == 'D')
-        this.setAttribute('value', 'L');
-    else
-        this.setAttribute('value', 'D');
+    // this.classList.toggle('grey-mod');
+    // if(this.getAttribute('value') == 'D')
+    //     this.setAttribute('value', 'L');
+    // else
+    //     this.setAttribute('value', 'D');
     // logoElem.classList.toggle('dark-logo');
 }
 showTrending();
