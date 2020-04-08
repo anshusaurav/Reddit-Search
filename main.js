@@ -3,12 +3,13 @@ const ulElem = document.querySelector('.results-ul');
 const inputElem = document.querySelector('.input');
 const searchHeaderElem = document.querySelector('.sub-reddit');
 const searchResElem = document.querySelector('.search-results');
-const switchModeButton = document.querySelector('.light-dark');
+const switchModeButton = document.querySelector('.toggle');
 const bodyElem = document.querySelector('body');
 searchResElem.style.display = 'none';
 let isDarkMode = false;
+
 inputElem.addEventListener('keyup', updateUi);
-switchModeButton.addEventListener('click', switchMode);
+switchModeButton.addEventListener('input', switchMode);
 async function showTopic(topicName) {
     let posts;
     let response = await fetch(`https://api.reddit.com/r/${topicName}`);
@@ -130,7 +131,7 @@ function getCounts(cnt) {
 
 }
 
-function switchMode()
+function switchMode(event)
 {
     bodyElem.classList.toggle('dark');  
     let liArr = Array.from(document.querySelectorAll('.li-item'));
@@ -167,9 +168,16 @@ function switchMode()
     let headElem = document.body.querySelector('.header');
     headElem.classList.toggle('grey-mod1');
     headElem.classList.toggle('grey-mod2');
-    let inpElemHover = document.body.querySelector('.input:hover');
+    let inpElemHover = document.body.querySelector('.input');
+    inpElemHover.classList.toggle('grey-misc');
     console.dir(inpElemHover);
-    inpElemHover.classList.toggle('dark');
+    //inpElemHover.classList.toggle('dark');
+    console.log(this);
+    this.classList.toggle('grey-mod');
+    if(this.getAttribute('value') == 'D')
+        this.setAttribute('value', 'L');
+    else
+        this.setAttribute('value', 'D');
     // logoElem.classList.toggle('dark-logo');
 }
 showTrending();
