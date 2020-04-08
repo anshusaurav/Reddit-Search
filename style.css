@@ -128,8 +128,12 @@ a{
     outline: none;
 }
 .header-buttons{
-    width: 40%;
-    flex-wrap: wrap;
+    
+    display: grid;
+    align-items: center;
+    grid-gap: 6px;
+    grid-template-columns: 1fr 1fr 1fr;
+    
 }
 .login-button, .signup-button, .light-dark {
     border-radius: 0.4rem;
@@ -370,7 +374,9 @@ a{
     outline: none;
 }
 
-
+.toggle{
+    width: 30%;
+}
 .toggle input[type=checkbox] {
 	display: none;
 }
@@ -383,8 +389,9 @@ a{
 	display: inline-block;
 	position: relative;
 	transition: all ease-in-out 0.3s;
-	width: 100px;
-	height: 50px;
+	width: 82px;
+    height: 32px;
+    box-sizing: content-box;
 }
 
 .toggle label::after {
@@ -394,15 +401,13 @@ a{
 	cursor: pointer;
 	display: inline-block;
 	position: absolute;
-	left: 2px;
-	top: 2px;
 	transition: all ease-in-out 0.3s;
-	width: 42px;
-	height: 42px;
+    width: 32px;
+    height: 32px;
 }
 
 .toggle input[type=checkbox]:checked ~ label {
-	background-color: #00a0fc;
+	background-color: #d7dadc;
 	border-color: #006dc9;
 }
 
