@@ -17,7 +17,6 @@ async function showTopic(topicName) {
     console.log('search');
     console.log(posts);
     resultPosts.push(...posts.data.children);
-    //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
 }
 async function showTrending() {
@@ -27,14 +26,11 @@ async function showTrending() {
     console.log('Trend');
     console.log(posts);
     resultPosts.push(...posts.data.children);
-    //console.log(resultPosts);
     resultPosts.forEach(elem=>createLiElem(elem));
     searchHeaderElem.innerHTML = `Trending Subreddits`;
     searchResElem.style.display = 'block';
 }
 function createLiElem(post){
-    // ulElem.innerHTML
-    // <li class='li-item'>
     let strDate = '';
     if(daysBetweenDate(post.data.created_utc) == 0)
         strDate = 'Today';
@@ -100,11 +96,7 @@ function updateUi(event){
         showTopic(value);
         searchResElem.style.display = 'block';
     }
-    //  console.log(ulElem.childElementCount);
-    //     while(ulElem.firstChild)
-    //         ulElem.removeChild(ulElem.firstChild);
-    //     console.log(ulElem.childElementCount);
-
+    
 }
 function reset()
 {
@@ -131,7 +123,7 @@ function getCounts(cnt) {
 
 }
 
-function switchMode(event)
+function switchMode()
 {
     bodyElem.classList.toggle('dark');  
     let liArr = Array.from(document.querySelectorAll('.li-item'));
@@ -170,15 +162,6 @@ function switchMode(event)
     headElem.classList.toggle('grey-mod2');
     let inpElemHover = document.body.querySelector('.input');
     inpElemHover.classList.toggle('grey-misc');
-    console.dir(inpElemHover);
-    //inpElemHover.classList.toggle('dark');
-    console.log(this);
-    // this.classList.toggle('grey-mod');
-    // if(this.getAttribute('value') == 'D')
-    //     this.setAttribute('value', 'L');
-    // else
-    //     this.setAttribute('value', 'D');
-    // logoElem.classList.toggle('dark-logo');
 }
 showTrending();
   
