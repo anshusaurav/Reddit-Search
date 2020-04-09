@@ -91,7 +91,7 @@ function createLiElem(post){
         miscElem.innerHTML=`<img class="misc-img"
         title="Inline Frame Example"
         src=${url}>`;
-        console.log('Thi should be included' +url);
+        console.log('Thi should be included ' +url);
     }
     else if(url.indexOf('yout')!=-1){
         var video_id = youtube_parser(url);
@@ -189,6 +189,10 @@ function switchMode()
     headElem.classList.toggle('grey-mod2');
     let inpElemHover = document.body.querySelector('.input');
     inpElemHover.classList.toggle('grey-misc');
+    let loginButton = document.querySelector('.login-button');
+    loginButton.classList.toggle('grey-mod2');
+    let signupButton = document.querySelector('.signup-button');
+    signupButton.classList.toggle('grey-mod');
     localStorage.setItem('isDarkMode', JSON.stringify(isDM));
     
 }

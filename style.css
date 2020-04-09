@@ -141,10 +141,10 @@ a{
     /* padding: 0.5rem; */
     box-shadow: none;
     text-transform: uppercase;
-    padding: 6px 16px;
+    padding: 6px 4px;
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
-    border-radius: 4px;
+    border-radius: 50px;
     box-sizing: border-box;
     text-align: center;
     letter-spacing: 1px;
