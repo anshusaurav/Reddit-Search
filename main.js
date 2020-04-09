@@ -25,12 +25,7 @@ async function showTopic(topicName) {
     console.log(posts);
     resultPosts.push(...posts.data.children);
     resultPosts.forEach(elem=>createLiElem(elem));
-    
-    // if(isDM){
-    //     switchMode();
-    //     switchModeButton.checked = true;
-    // }
-
+   
 }
 async function showTrending() {
     let posts;
@@ -42,10 +37,7 @@ async function showTrending() {
     resultPosts.forEach(elem=>createLiElem(elem));
     searchHeaderElem.innerHTML = `Trending Subreddits`;
     searchResElem.style.display = 'block';
-    // if(isDM){
-    //     switchMode();
-    //     switchModeButton.checked = true;
-    // }
+    
 }
 function createLiElem(post){
     let strDate = '';
