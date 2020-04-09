@@ -7,34 +7,29 @@ const switchModeButton = document.querySelector('.toggle');
 const bodyElem = document.querySelector('body');
 searchResElem.style.display = 'none';
 let isDM = false;
-if(localStorage.getItem('isDarkMode' )){
-    isDM = JSON.parse( localStorage.isDarkMode );
-    console.log('dsaijdoajsojdowqoei-021i0e-8-0483-0293-219-31o2   ==============>>>>>>>>>>>>>>>>' + isDM + '|'+ localStorage.isDarkMode+'|');
-}
-else
-    isDM = false;
-
-// window.onload = function() {
-//     setTimeout(()=>{if(isDM) switchMode()}, 0)
-// };
-
+// if(localStorage.getItem('isDarkMode' )){
+//     isDM = JSON.parse( localStorage.isDarkMode );
+//     console.log('dsaijdoajsojdowqoei-021i0e-8-0483-0293-219-31o2   ==============>>>>>>>>>>>>>>>>' + isDM + '|'+ localStorage.isDarkMode+'|');
+// }
+// else
+//     isDM = false;
 
 inputElem.addEventListener('keyup', updateUi);
 switchModeButton.addEventListener('input', switchMode);
 async function showTopic(topicName) {
-    let posts;
-    searchHeaderElem.innerHTML = `<div class='loading-div'>
-            <img class='loading' src='Spinner-1s-353px.gif'>
-        </div>`;
-    let response = await fetch(`https://api.reddit.com/r/${topicName}`);
+    let posts,response;
+    response = await fetch(`https://api.reddit.com/r/${topicName}`);
     
     posts = await response.json();
     console.log('search');
     console.log(posts);
     resultPosts.push(...posts.data.children);
     resultPosts.forEach(elem=>createLiElem(elem));
-    if(isDM)
-        switchMode();
+    
+    // if(isDM){
+    //     switchMode();
+    //     switchModeButton.checked = true;
+    // }
 
 }
 async function showTrending() {
@@ -47,7 +42,10 @@ async function showTrending() {
     resultPosts.forEach(elem=>createLiElem(elem));
     searchHeaderElem.innerHTML = `Trending Subreddits`;
     searchResElem.style.display = 'block';
-    setTimeout(()=>{if(isDM) switchMode()}, 0)
+    // if(isDM){
+    //     switchMode();
+    //     switchModeButton.checked = true;
+    // }
 }
 function createLiElem(post){
     let strDate = '';
@@ -202,7 +200,7 @@ function switchMode()
     loginButton.classList.toggle('grey-mod2');
     let signupButton = document.querySelector('.signup-button');
     signupButton.classList.toggle('grey-mod');
-    localStorage.setItem('isDarkMode', JSON.stringify(isDM));
+    //localStorage.setItem('isDarkMode', JSON.stringify(isDM));
     
 }
 
