@@ -6,13 +6,19 @@ const searchResElem = document.querySelector('.search-results');
 const switchModeButton = document.querySelector('.toggle');
 const bodyElem = document.querySelector('body');
 searchResElem.style.display = 'none';
-let isDM;
-if(localStorage.getItem('isDarkMode' ))
+let isDM = false;
+if(localStorage.getItem('isDarkMode' )){
     isDM = JSON.parse( localStorage.isDarkMode );
+    console.log('dsaijdoajsojdowqoei-021i0e-8-0483-0293-219-31o2   ==============>>>>>>>>>>>>>>>>' + isDM + '|'+ localStorage.isDarkMode+'|');
+}
 else
     isDM = false;
-// if(isDM)
-//     switchMode();
+
+// window.onload = function() {
+//     setTimeout(()=>{if(isDM) switchMode()}, 0)
+// };
+
+
 inputElem.addEventListener('keyup', updateUi);
 switchModeButton.addEventListener('input', switchMode);
 async function showTopic(topicName) {
@@ -27,7 +33,9 @@ async function showTopic(topicName) {
     console.log(posts);
     resultPosts.push(...posts.data.children);
     resultPosts.forEach(elem=>createLiElem(elem));
-    
+    if(isDM)
+        switchMode();
+
 }
 async function showTrending() {
     let posts;
@@ -39,6 +47,7 @@ async function showTrending() {
     resultPosts.forEach(elem=>createLiElem(elem));
     searchHeaderElem.innerHTML = `Trending Subreddits`;
     searchResElem.style.display = 'block';
+    setTimeout(()=>{if(isDM) switchMode()}, 0)
 }
 function createLiElem(post){
     let strDate = '';
