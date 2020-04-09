@@ -432,3 +432,13 @@ a{
 	background-color: #0054B0;
 	transform: translateX(50px);
 }
+.loading-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: 0 40%;
+}
+.loading{
+    width: 48px;
+}

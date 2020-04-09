@@ -17,12 +17,17 @@ inputElem.addEventListener('keyup', updateUi);
 switchModeButton.addEventListener('input', switchMode);
 async function showTopic(topicName) {
     let posts;
+    searchHeaderElem.innerHTML = `<div class='loading-div'>
+            <img class='loading' src='Spinner-1s-353px.gif'>
+        </div>`;
     let response = await fetch(`https://api.reddit.com/r/${topicName}`);
+    
     posts = await response.json();
     console.log('search');
     console.log(posts);
     resultPosts.push(...posts.data.children);
     resultPosts.forEach(elem=>createLiElem(elem));
+    
 }
 async function showTrending() {
     let posts;
@@ -77,7 +82,8 @@ function createLiElem(post){
                         </div>
                     </div>`;
                     //<p class='post-description'>${post.data.selftext}</p>
-    let url = post.data.url;
+    let url = post.data.url || post.data.thumbnail;
+    console.log('url: '+url);
     let miscElem = liElem.querySelector('.misc');
     console.log(url);
     url = url.replace("watch?v=", "v/");
@@ -106,11 +112,15 @@ function youtube_parser(url){
 function updateUi(event){
     
     if(event.keyCode == 13) {
-       reset();
+        reset();
+        
         let value = this.value;
-        searchHeaderElem.innerHTML = `r/${value}`;
+        
+        
         showTopic(value);
         searchResElem.style.display = 'block';
+        searchHeaderElem.innerHTML = `r/${value}`;
+        
     }
     
 }
