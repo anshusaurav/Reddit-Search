@@ -60,12 +60,14 @@ function createLiElem(post){
     let liElem = document.createElement('li');
     liElem.classList.add('li-item');
     liElem.innerHTML = `<div class='score-div'>
-                        <div class='vote-div'>
-                            <img src="upB.png" alt='search-mark' class='vote-img'>
-                        </div>
-                        <h2 class='updownscore'>${getCounts(post.data.score)}</h2>
-                        <div class='vote-div'>
-                            <img src="downB.png" alt='search-mark' class='vote-img'>
+                        <div class='score-innder-div'>
+                            <div class='vote-div'>
+                                <img src="upB.png" alt='search-mark' class='vote-img'>
+                            </div>
+                            <h2 class='updownscore'>${getCounts(post.data.score)}</h2>
+                            <div class='vote-div'>
+                                <img src="downB.png" alt='search-mark' class='vote-img'>
+                            </div>
                         </div>
                     </div>
                     <div class='post-details-div'>
