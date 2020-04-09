@@ -63,6 +63,13 @@ body{
     body {
         font-size: 10px;
     }
+    .score-div{
+        width: 8%;
+    }
+    .updownscore{
+        font-size: 0.55rem;
+        font-weight: 500;
+    }
   }
 a{
     text-decoration: none;
@@ -260,7 +267,7 @@ a{
 }
 .updownscore{
     height: 20px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
     opacity: 0.8;
     text-align: center;
