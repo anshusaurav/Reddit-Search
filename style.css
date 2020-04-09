@@ -59,6 +59,11 @@ body{
     background-color: #DAE0E6;
     transition: all ease-in-out 0.3s;
 }
+@media only screen and (max-width: 720px) {
+    body {
+        font-size: 10px;
+    }
+  }
 a{
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -371,7 +376,7 @@ a{
 }
 .misc-iframe{
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     max-height: 460px;
 
 }

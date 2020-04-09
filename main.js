@@ -95,7 +95,7 @@ function createLiElem(post){
     console.log('url: '+url);
     let miscElem = liElem.querySelector('.misc');
     console.log(url);
-    url = url.replace("watch?v=", "v/");
+    //url = url.replace("watch?v=", "v/");
     if((url.startsWith('https')||url.startsWith('http')) && (url.endsWith('jpeg')||url.endsWith('png')||url.endsWith('jpg')||url.endsWith('gif'))){
         miscElem.innerHTML=`<img class="misc-img"
         title="Inline Frame Example"
@@ -108,9 +108,22 @@ function createLiElem(post){
         miscElem.innerHTML = `<iframe src=${newUrl} class='misc-iframe'
         width="95%" height="360" frameborder="0" allowfullscreen></iframe>`
     }
+    else if(url.indexOf('gfycat.com/')!=-1){
+        let urlArr = url.split('/');
+        
+        //var video_id = 'https://gfycat.com/ifr/' + urlArr[urlArr.length-1];
+        let newUrl = 'https://gfycat.com/ifr/' + urlArr[urlArr.length-1];
+        miscElem.innerHTML = `<iframe src=${newUrl} class='misc-iframe'
+        width="95%" height="360" frameborder="0" allowfullscreen></iframe>`  
+    }
+    // else if(url.indexOf('imgur')!=-1){
+    //     miscElem.innerHTML = `<iframe src=${url} class='misc-iframe'
+    //     width="95%" height="auto" frameborder="0" allowfullscreen></iframe>` 
+    // }
     else{
         miscElem.style.display = 'none';
     }
+    // <div style='position:relative; padding-bottom:calc(124.69% + 44px)'><iframe src='https://gfycat.com/ifr/PointlessBlushingChanticleer' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
     ulElem.append(liElem);
 }
 function youtube_parser(url){
